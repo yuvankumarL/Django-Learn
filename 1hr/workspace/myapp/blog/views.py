@@ -10,7 +10,10 @@ def detail(request, post_id):
     return HttpResponse(f"You are viewing post details page {post_id}")
 
 def old_url_redirect(request):
-    return redirect("new_url")
+    # return redirect("new_url") 
+    # instead of hard coding this url we can use reverse from djano.urls
+    return redirect(reverse('blog:new_page_url'))
+
 
 def new_url_view(request):
     return HttpResponse("This is the new URL")
