@@ -7,10 +7,10 @@ def index(request):
     # return HttpResponse("Hello World, You are at blog's index")
     blog_title = "Latest Post"
     posts = [
-        {'title': 'Post 1', 'content': 'Content for Post 1'},
-        {'title': 'Post 2', 'content': 'Content for Post 2'},
-        {'title': 'Post 3', 'content': 'Content for Post 3'},
-        {'title': 'Post 4', 'content': 'Content for Post 4'},
+        {'id': 1, 'title': 'Post 1', 'content': 'Content for Post 1'},
+        {'id': 2, 'title': 'Post 2', 'content': 'Content for Post 2'},
+        {'id': 3, 'title': 'Post 3', 'content': 'Content for Post 3'},
+        {'id': 4, 'title': 'Post 4', 'content': 'Content for Post 4'},
     ]
     return render(request, 'blog/index.html', {'blog_title': blog_title, 'posts': posts})
     
