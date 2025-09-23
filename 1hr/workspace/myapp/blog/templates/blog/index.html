@@ -4,7 +4,18 @@
     <div class="container-fluid ">
         <div class="row my-2">
             <div class="col">
-                <h2 >{{ blog_title }}</h2>
+                <!-- upper: it is a filter -->
+                <h2 >{{ blog_title | upper }}</h2>
+
+                <!-- length filter it show only the lenght of the string -->
+                <!-- <h2 >{{ blog_title | length }}</h2> -->
+
+                <!-- used to show only limited words -->
+                <!-- <h2 >{{ blog_title | truncatewords:1 }}</h2> -->
+                <!-- output: Latest... it will hide the words after first word and replace those all with ... -->
+                <!-- ... this is called text elipsis -->
+
+
             </div>
             <div class="col-3">
                 <div class="input-group">
