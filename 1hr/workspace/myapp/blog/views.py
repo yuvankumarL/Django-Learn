@@ -21,7 +21,12 @@ def index(request):
     
 def detail(request, post_id):
     # return HttpResponse(f"You are viewing post details page {post_id}")
-    post = next((item for item in posts if item['id'] == int(post_id)), None)
+    # static data
+    # post = next((item for item in posts if item['id'] == int(post_id)), None)
+
+    # getting data from model by post id
+    post = Post.objects.get(pk=int(post_id))
+
     logger = logging.getLogger("TESTING")
     logger.debug(f'post variable is {post}')
     return render(request, 'blog/detail.html', {'post': post})

@@ -40,7 +40,7 @@
                                     {% comment %} <h5 class="card-title">Post title</h5>
                                     <p class="card-text">Some quick example text for the post's content.</p> {% endcomment %}
                                     <h5 class="card-title">{{post.title}}</h5>
-                                    <p class="card-text">{{post.content}}</p>
+                                    <p class="card-text">{{post.content | truncatechars:70}}</p>
                                     <div class="d-flex justify-content-between">
                                             {% comment %} <a href="./detail.html">Read More</a> {% endcomment %}
                                             {% comment %} this is hard coded {% endcomment %}
