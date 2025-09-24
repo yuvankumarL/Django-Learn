@@ -1,7 +1,7 @@
 
 from typing import Any
-# from blog.models import Post, Category
-from blog.models import Post
+from blog.models import Post, Category
+# from blog.models import Post
 from django.core.management.base import BaseCommand
 import random
 from django.db import connection
@@ -85,11 +85,11 @@ class Command(BaseCommand):
             "https://picsum.photos/id/20/800/400",
         ]
         
-        # categories = Category.objects.all()
+        categories = Category.objects.all()
         for title, content, img_url in zip(titles, contents, img_urls):
-            # category = random.choice(categories)
-            # Post.objects.create(title=titl;e, content=content, img_url=img_url, category=category)
-            Post.objects.create(title=title, content=content, img_url=img_url)
+            category = random.choice(categories)
+            Post.objects.create(title=title, content=content, img_url=img_url, category=category)
+            # Post.objects.create(title=title, content=content, img_url=img_url)
 
 
         self.stdout.write(self.style.SUCCESS("Completed inserting Data!"))
