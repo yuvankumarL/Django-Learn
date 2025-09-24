@@ -1,0 +1,8 @@
+if any misktakes made in migrations, deleting the migrations in migrate folder is good but at the same time we need to deleted that in database(data_migrate table) is also important. to delete that go to data_migrate tabe delete all the rows in where app='blog'.
+And delete the tables created using this migrate.
+Now again run the migrate command to apply the changes to the database, now your migrations will be added and the tables will be created but the data is lost.
+to regenerate the data run the populate_categories and populate_posts.
+
+there is another command to delete all data in the table that is flush,
+    python manage.py flush
+this will delete all the data
