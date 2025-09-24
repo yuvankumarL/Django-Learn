@@ -48,7 +48,7 @@
 
                                             {% comment %} dynamic way {% endcomment %}
                                             <a href= {% url "blog:detail" slug=post.slug %}>Read More</a>
-                                        <a class="text-decoration-none text-dark fw-bold" href="#">Sports</a>
+                                        <a class="text-decoration-none text-dark fw-bold" href="#">{{post.category.name}}</a>
                                     </div>
                                 </div>
                             </div>
