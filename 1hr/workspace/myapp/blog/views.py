@@ -27,12 +27,13 @@ def detail(request, slug):
     # getting data from model by post id
     try:
         post = Post.objects.get(slug=slug)
+        related_posts = Post.objects.filter(category=post.category).exclude(pk=post.id)
     except Post.DoesNotExist:
         raise Http404("Post Does not Exists!ss")
 
     logger = logging.getLogger("TESTING")
     logger.debug(f'post variable is {post}')
-    return render(request, 'blog/detail.html', {'post': post})
+    return render(request, 'blog/detail.html', {'post': post, 'related_posts':related_posts})
 
 def old_url_redirect(request):
     # return redirect("new_url") 
