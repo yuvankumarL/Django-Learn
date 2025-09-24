@@ -4,6 +4,7 @@ from typing import Any
 from blog.models import Post
 from django.core.management.base import BaseCommand
 import random
+from django.db import connection
 
 class Command(BaseCommand):
     help = "This commands inserts post data"
@@ -11,6 +12,9 @@ class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any):
         # Delete existing data 
         Post.objects.all().delete()
+        # Reset auto-increment ID (PostgreSQL example)
+        with connection.cursor() as cursor:
+            cursor.execute("ALTER TABLE blog_post AUTO_INCREMENT = 1;")
 
         titles = [
             "The Future of AI",
@@ -84,7 +88,7 @@ class Command(BaseCommand):
         # categories = Category.objects.all()
         for title, content, img_url in zip(titles, contents, img_urls):
             # category = random.choice(categories)
-            # Post.objects.create(title=title, content=content, img_url=img_url, category=category)
+            # Post.objects.create(title=titl;e, content=content, img_url=img_url, category=category)
             Post.objects.create(title=title, content=content, img_url=img_url)
 
 
